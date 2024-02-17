@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.rafaelfagundes.arrworkout.databinding.ActivityMainBinding;
 
@@ -69,9 +70,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addWorkoutSession() {
+        String heightStr = binding.editTextHeight.getText().toString();
+        String weightStr = binding.editTextWeight.getText().toString();
+
+        if (heightStr.isEmpty() || weightStr.isEmpty()) {
+            Toast.makeText(this, "Please enter both weight and height", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Check if height is 0
+        if (Integer.parseInt(heightStr) == 0) {
+            Toast.makeText(this, "Height must be more than 0", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Check if weight is 0
+        if (Integer.parseInt(weightStr) == 0) {
+            Toast.makeText(this, "Weight must be more than 0", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Check if step count is 0
+        if (binding.seekBar.getProgress() == 0) {
+            Toast.makeText(this, "Steps must be more than 0", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+
         int stepCount = binding.seekBar.getProgress();
-        int height = Integer.parseInt(binding.editTextHeight.getText().toString());
-        int weight = Integer.parseInt(binding.editTextWeight.getText().toString());
+        int height = Integer.parseInt(heightStr);
+        int weight = Integer.parseInt(weightStr);
 
         // Calculate stride
         double stride = height * 0.414;

@@ -53,10 +53,10 @@ public class SessionAdapter  extends RecyclerView.Adapter<SessionAdapter.Session
         }
 
         public void bind(Session session) {
-            stepCountTextView.setText(String.valueOf(session.getStepCount()));
-            heightTextView.setText(String.valueOf(session.getHeight()));
-            weightTextView.setText(String.valueOf(session.getWeight()));
-            caloriesBurnedTextView.setText(String.valueOf(session.getCaloriesBurned()));
+            stepCountTextView.setText("Steps: " + session.getStepCount());
+            heightTextView.setText("Height: " + session.getHeight());
+            weightTextView.setText("Weight: " + session.getWeight());
+            caloriesBurnedTextView.setText("Calories Burned: " + session.getCaloriesBurned());
         }
     }
 }
