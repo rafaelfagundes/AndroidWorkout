@@ -8,7 +8,7 @@
     tools:context=".SessionsListActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/topTextLine"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
@@ -22,32 +22,32 @@
         >
 
         <TextView
-            android:id="@+id/textView_step_count"
+            android:id="@+id/textViewStepCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/step_count_label"
+            android:text="@string/stepCountLabel"
             android:textSize="11sp" />
 
         <TextView
-            android:id="@+id/textView_height"
+            android:id="@+id/textViewHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/height_label"
+            android:text="@string/heightLabel"
             android:textSize="11sp" />
 
         <TextView
-            android:id="@+id/textView_weight"
+            android:id="@+id/textViewWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/weight_label"
+            android:text="@string/weightLabel"
             android:textSize="11sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/bottomTextLine"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
@@ -55,16 +55,16 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@id/topTextLine"
         app:flow_horizontalAlign="start"
         android:textAlignment="textStart"
         >
 
         <TextView
-            android:id="@+id/textView_calories_burned"
+            android:id="@+id/textViewCaloriesBurned"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/calories_burned_label"
+            android:text="@string/caloriesBurnedLabel"
             android:textSize="11sp" />
     </LinearLayout>
 
@@ -74,6 +74,6 @@
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
         android:background="#FFA500"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@id/bottomTextLine" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

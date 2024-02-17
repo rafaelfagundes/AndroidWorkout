@@ -9,8 +9,8 @@
     <string name="weight">Weight</string>
     <string name="height">Height</string>
     <string name="calories">Calories</string>
-    <string name="step_count_label">Steps: %d</string>
-    <string name="height_label">Height: %d</string>
-    <string name="weight_label">Weight: %d</string>
-    <string name="calories_burned_label">Calories Burned: %.2f</string>
+    <string name="stepCountLabel">Steps: %d</string>
+    <string name="heightLabel">Height: %d</string>
+    <string name="weightLabel">Weight: %d</string>
+    <string name="caloriesBurnedLabel">Calories Burned: %.2f</string>
 </resources>

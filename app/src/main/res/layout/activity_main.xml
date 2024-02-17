@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewSteps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -35,7 +35,7 @@
             tools:layout_editor_absoluteY="35dp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewNumberOfSteps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -47,7 +47,7 @@
             tools:layout_editor_absoluteY="52dp" />
 
         <EditText
-            android:id="@+id/editText_weight"
+            android:id="@+id/editTextWeight"
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -61,7 +61,7 @@
             android:textSize="11sp" />
 
         <EditText
-            android:id="@+id/editText_height"
+            android:id="@+id/editTextHeight"
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_gravity="center"

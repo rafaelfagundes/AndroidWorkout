@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // Update the displayed step count as the seek bar is moved
-                binding.textView2.setText(String.valueOf(progress));
+                binding.textViewNumberOfSteps.setText(String.valueOf(progress));
             }
 
             @Override

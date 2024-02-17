@@ -19,22 +19,19 @@ public class Session {
         this.caloriesBurned = caloriesBurned;
     }
 
-    // Getter for the stepCount property
+    // Getters
     public int getStepCount() {
         return stepCount;
     }
 
-    // Getter for the height property
     public int getHeight() {
         return height;
     }
 
-    // Getter for the weight property
     public int getWeight() {
         return weight;
     }
 
-    // Getter for the caloriesBurned property
     public float getCaloriesBurned() {
         return caloriesBurned;
     }

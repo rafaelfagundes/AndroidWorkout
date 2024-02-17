@@ -64,10 +64,10 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             // Get the context from the root view
             Context context = binding.getRoot().getContext();
             // Set the text for each TextView in the item's view
-            binding.textViewStepCount.setText(context.getString(R.string.step_count_label, session.getStepCount()));
-            binding.textViewHeight.setText(context.getString(R.string.height_label, session.getHeight()));
-            binding.textViewWeight.setText(context.getString(R.string.weight_label, session.getWeight()));
-            binding.textViewCaloriesBurned.setText(context.getString(R.string.calories_burned_label, session.getCaloriesBurned()));
+            binding.textViewStepCount.setText(context.getString(R.string.stepCountLabel, session.getStepCount()));
+            binding.textViewHeight.setText(context.getString(R.string.heightLabel, session.getHeight()));
+            binding.textViewWeight.setText(context.getString(R.string.weightLabel, session.getWeight()));
+            binding.textViewCaloriesBurned.setText(context.getString(R.string.caloriesBurnedLabel, session.getCaloriesBurned()));
         }
     }
 }
