@@ -51,30 +51,28 @@
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
+            android:autofillHints="weight"
             android:backgroundTint="@color/black"
             android:hint="@string/weightHint"
             android:inputType="number"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textColorHint="@color/orange"
-            android:textSize="11sp"
-            android:autofillHints="weight"
-            android:textAlignment="center"
-            />
+            android:textSize="11sp" />
 
         <EditText
             android:id="@+id/editText_height"
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
+            android:autofillHints="height"
             android:backgroundTint="@color/black"
             android:hint="@string/heightHint"
             android:inputType="number"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textColorHint="@color/orange"
-            android:textSize="11sp"
-            android:autofillHints="height"
-            android:textAlignment="center"
-            />
+            android:textSize="11sp" />
 
         <Button
             android:id="@+id/button"
