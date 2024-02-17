@@ -6,9 +6,9 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.rafaelfagundes.arrworkout.adapters.SessionAdapter;
+import com.rafaelfagundes.arrworkout.databinding.ActivitySessionListBinding;
 import com.rafaelfagundes.arrworkout.models.Session;
 
 import java.util.ArrayList;
@@ -21,8 +21,9 @@ public class SessionsListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Set the layout for this activity
-        setContentView(R.layout.activity_session_list);
+        // Initialize view binding
+        com.rafaelfagundes.arrworkout.databinding.ActivitySessionListBinding binding = ActivitySessionListBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // Initialize shared preferences
         sharedPreferences = getSharedPreferences("WorkoutSessions", Context.MODE_PRIVATE);
@@ -30,10 +31,9 @@ public class SessionsListActivity extends AppCompatActivity {
         List<Session> workoutSessionList = retrieveWorkoutSessions();
 
         // Set up the RecyclerView to display the workout sessions
-        RecyclerView recyclerView = findViewById(R.id.recyclerView_workout_sessions);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerViewWorkoutSessions.setLayoutManager(new LinearLayoutManager(this));
         SessionAdapter adapter = new SessionAdapter(workoutSessionList);
-        recyclerView.setAdapter(adapter);
+        binding.recyclerViewWorkoutSessions.setAdapter(adapter);
     }
 
     private List<Session> retrieveWorkoutSessions() {
