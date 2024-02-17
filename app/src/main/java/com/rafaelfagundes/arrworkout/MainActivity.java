@@ -3,12 +3,14 @@ package com.rafaelfagundes.arrworkout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -27,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("WorkoutSessions", Context.MODE_PRIVATE);
 
 
-        heightEditText = ((TextInputLayout)findViewById(R.id.editText_height)).getEditText();
-        weightEditText = ((TextInputLayout)findViewById(R.id.editText_weight)).getEditText();
+        heightEditText = (findViewById(R.id.editText_height));
+        weightEditText = (findViewById(R.id.editText_weight));
 
         stepCountSeekBar = findViewById(R.id.seekBar);
             stepCountTextView = findViewById(R.id.textView2);
@@ -52,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
         private void addWorkoutSession() {
             int stepCount = stepCountSeekBar.getProgress();
-            int height = Integer.parseInt(heightEditText.getText().toString());
-            int weight = Integer.parseInt(weightEditText.getText().toString());
+            int height = 0;
+            int weight = 0;
+             height = Integer.parseInt(heightEditText.getText().toString());
+             weight = Integer.parseInt(weightEditText.getText().toString());
 
             // Calculate stride
             double stride = height * 0.414;
@@ -85,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
             editor.putFloat("caloriesBurned", (float) calories);
             editor.apply();
 
-            // Start new activity or perform necessary actions
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intent);
         }
     }
