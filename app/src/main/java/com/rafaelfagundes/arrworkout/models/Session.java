@@ -1,4 +1,4 @@
-package com.rafaelfagundes.arrworkout;
+package com.rafaelfagundes.arrworkout.models;
 
 public class Session {
 

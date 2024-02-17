@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
 
         // Start new activity or perform necessary actions
-        Intent intent = new Intent(MainActivity.this, SessionsList.class);
+        Intent intent = new Intent(MainActivity.this, SessionsListActivity.class);
         startActivity(intent);
     }
 

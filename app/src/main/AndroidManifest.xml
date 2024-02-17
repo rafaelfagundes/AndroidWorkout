@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SessionsList"
+            android:name=".SessionsListActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 

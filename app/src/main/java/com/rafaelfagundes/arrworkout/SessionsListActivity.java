@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.rafaelfagundes.arrworkout.adapters.SessionAdapter;
+import com.rafaelfagundes.arrworkout.models.Session;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SessionsList extends AppCompatActivity {
+public class SessionsListActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private List<Session> workoutSessionList;
     private SessionAdapter adapter;
