@@ -17,19 +17,18 @@ import java.util.List;
 
 public class SessionsListActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
-    private List<Session> workoutSessionList;
-    private SessionAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session_list);
 
         sharedPreferences = getSharedPreferences("WorkoutSessions", Context.MODE_PRIVATE);
-        workoutSessionList = retrieveWorkoutSessions();
+        List<Session> workoutSessionList = retrieveWorkoutSessions();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView_workout_sessions);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new SessionAdapter(workoutSessionList);
+        SessionAdapter adapter = new SessionAdapter(workoutSessionList);
         recyclerView.setAdapter(adapter);
     }
 

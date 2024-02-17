@@ -146,23 +146,4 @@ public class MainActivity extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-
-    private class OnSeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            binding.textView2.setText(String.valueOf(progress));
-
-        }
-
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-
-
-        }
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-
-        }
-    }
 }

@@ -2,10 +2,10 @@ package com.rafaelfagundes.arrworkout.models;
 
 public class Session {
 
-    private int stepCount;
-    private int height;
-    private int weight;
-    private float caloriesBurned;
+    private final int stepCount;
+    private final int height;
+    private final int weight;
+    private final float caloriesBurned;
 
 
     public Session(int stepCount, int height, int weight, float caloriesBurned) {
