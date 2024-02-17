@@ -1,4 +1,4 @@
-package com.rafaelfagundes.arrworkout;
+package com.rafaelfagundes.arrworkout.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
