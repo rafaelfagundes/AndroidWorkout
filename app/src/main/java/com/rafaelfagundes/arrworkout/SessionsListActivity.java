@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.rafaelfagundes.arrworkout.adapters.SessionAdapter;
 import com.rafaelfagundes.arrworkout.models.Session;
 
@@ -16,16 +15,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SessionsListActivity extends AppCompatActivity {
+    // Shared preferences to store workout session data
     private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Set the layout for this activity
         setContentView(R.layout.activity_session_list);
 
+        // Initialize shared preferences
         sharedPreferences = getSharedPreferences("WorkoutSessions", Context.MODE_PRIVATE);
+        // Retrieve the workout sessions from shared preferences
         List<Session> workoutSessionList = retrieveWorkoutSessions();
 
+        // Set up the RecyclerView to display the workout sessions
         RecyclerView recyclerView = findViewById(R.id.recyclerView_workout_sessions);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         SessionAdapter adapter = new SessionAdapter(workoutSessionList);
@@ -33,9 +37,13 @@ public class SessionsListActivity extends AppCompatActivity {
     }
 
     private List<Session> retrieveWorkoutSessions() {
+        // Create a list to store the workout sessions
         List<Session> sessions = new ArrayList<>();
 
+        // Get the number of workout sessions from shared preferences
         int sessionCount = sharedPreferences.getInt("sessionCount", 0);
+
+        // Loop through the workout sessions and add them to the list
         for (int i = 0; i < sessionCount; i++) {
             int stepCount = sharedPreferences.getInt("stepCount_" + i, 0);
             int height = sharedPreferences.getInt("height_" + i, 0);
@@ -43,6 +51,8 @@ public class SessionsListActivity extends AppCompatActivity {
             float caloriesBurned = sharedPreferences.getFloat("caloriesBurned_" + i, 0);
             sessions.add(new Session(stepCount, height, weight, caloriesBurned));
         }
+
+        // Return the list of workout sessions
         return sessions;
     }
 }

@@ -15,45 +15,56 @@ import android.widget.Toast;
 import com.rafaelfagundes.arrworkout.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+    // Shared preferences to store workout session data
     private SharedPreferences sharedPreferences;
+    // View binding to interact with the UI elements
     private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Inflate the layout for this activity
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Initialize shared preferences
         sharedPreferences = getSharedPreferences("WorkoutSessions", Context.MODE_PRIVATE);
 
+        // Set an action listener on the height input field
         binding.editTextHeight.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
+                // Save the entered height to shared preferences
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 int height = Integer.parseInt(binding.editTextHeight.getText().toString());
                 editor.putInt("height", height);
                 editor.apply();
+                // Hide the keyboard
                 hideKeyboard();
                 return true;
             }
             return false;
         });
 
+        // Set an action listener on the weight input field
         binding.editTextWeight.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
+                // Save the entered weight to shared preferences
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 int weight = Integer.parseInt(binding.editTextWeight.getText().toString());
                 editor.putInt("weight", weight);
                 editor.apply();
+                // Hide the keyboard
                 hideKeyboard();
                 return true;
             }
             return false;
         });
 
-
+        // Set a change listener on the seek bar
         binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                // Update the displayed step count as the seek bar is moved
                 binding.textView2.setText(String.valueOf(progress));
             }
 
@@ -66,13 +77,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Set a click listener on the button to start a workout session
         binding.button.setOnClickListener(view -> addWorkoutSession());
     }
 
     private void addWorkoutSession() {
+        // Get the entered height and weight
         String heightStr = binding.editTextHeight.getText().toString();
         String weightStr = binding.editTextWeight.getText().toString();
 
+        // Check if height and weight are entered
         if (heightStr.isEmpty() || weightStr.isEmpty()) {
             Toast.makeText(this, "Please enter both weight and height", Toast.LENGTH_SHORT).show();
             return;
@@ -96,8 +110,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-
-
+        // Get the step count, height, and weight
         int stepCount = binding.seekBar.getProgress();
         int height = Integer.parseInt(heightStr);
         int weight = Integer.parseInt(weightStr);
@@ -140,8 +153,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void hideKeyboard() {
+        // Get the currently focused view
         View view = this.getCurrentFocus();
         if (view != null) {
+            // Hide the keyboard
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
