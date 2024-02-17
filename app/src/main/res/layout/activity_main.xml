@@ -48,29 +48,32 @@
 
         <EditText
             android:id="@+id/editText_weight"
-            android:layout_width="100dp"
+            android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/black"
             android:hint="@string/weightHint"
             android:inputType="number"
             android:textColor="#000000"
             android:textColorHint="@color/orange"
             android:textSize="11sp"
-            android:autofillHints="weight" />
+            android:autofillHints="weight"
+            android:textAlignment="center"
+            />
 
         <EditText
             android:id="@+id/editText_height"
-            android:layout_width="100dp"
+            android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/black"
             android:hint="@string/heightHint"
             android:inputType="number"
             android:textColor="#000000"
             android:textColorHint="@color/orange"
             android:textSize="11sp"
             android:autofillHints="height"
+            android:textAlignment="center"
             />
 
         <Button
@@ -78,7 +81,6 @@
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-
             android:backgroundTint="@color/orange"
             android:text="@string/session"
             android:textSize="11sp" />
