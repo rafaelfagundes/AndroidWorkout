@@ -1,4 +1,4 @@
-package com.example.workout;
+package com.rafaelfagundes.arrworkout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
@@ -22,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-            sharedPreferences = getSharedPreferences("WorkoutSessions", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("WorkoutSessions", Context.MODE_PRIVATE);
 
-            heightEditText = findViewById(R.id.editText_height);
-            weightEditText = findViewById(R.id.editText_weight);
-            stepCountSeekBar = findViewById(R.id.seekBar);
+
+        heightEditText = ((TextInputLayout)findViewById(R.id.editText_height)).getEditText();
+        weightEditText = ((TextInputLayout)findViewById(R.id.editText_weight)).getEditText();
+
+        stepCountSeekBar = findViewById(R.id.seekBar);
             stepCountTextView = findViewById(R.id.textView2);
 
             stepCountSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

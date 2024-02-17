@@ -1,4 +1,4 @@
-package com.example.workout;
+package com.rafaelfagundes.arrworkout;
 
 import androidx.appcompat.app.AppCompatActivity;
 

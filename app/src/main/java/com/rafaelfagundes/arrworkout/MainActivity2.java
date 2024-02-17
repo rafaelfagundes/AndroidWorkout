@@ -1,4 +1,4 @@
-package com.example.workout;
+package com.rafaelfagundes.arrworkout;
 
 import android.content.Context;
 import android.content.SharedPreferences;

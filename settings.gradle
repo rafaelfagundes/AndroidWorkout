@@ -13,6 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Workout"
-include(":app")
- 
+rootProject.name = "ARRWorkout"
+include ':app'
