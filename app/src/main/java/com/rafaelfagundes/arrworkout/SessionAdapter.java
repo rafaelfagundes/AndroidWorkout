@@ -12,24 +12,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MainActivity3Adapter  extends RecyclerView.Adapter<MainActivity3Adapter.MainActivity3ViewHolder> {
+public class SessionAdapter  extends RecyclerView.Adapter<SessionAdapter.SessionViewHolder> {
 
-    private List<MainActivity3> sessions;
+    private List<Session> sessions;
 
-    public MainActivity3Adapter(List<MainActivity3> sessions) {
+    public SessionAdapter(List<Session> sessions) {
         this.sessions = sessions;
     }
 
     @NonNull
     @Override
-    public MainActivity3ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main3, parent, false);
-        return new MainActivity3ViewHolder(view);
+    public SessionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_session_item, parent, false);
+        return new SessionViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainActivity3ViewHolder holder, int position) {
-        MainActivity3 session = sessions.get(position);
+    public void onBindViewHolder(@NonNull SessionViewHolder holder, int position) {
+        Session session = sessions.get(position);
         holder.bind(session);
     }
 
@@ -38,13 +38,13 @@ public class MainActivity3Adapter  extends RecyclerView.Adapter<MainActivity3Ada
         return sessions.size();
     }
 
-    public static class MainActivity3ViewHolder extends RecyclerView.ViewHolder {
+    public static class SessionViewHolder extends RecyclerView.ViewHolder {
         private TextView stepCountTextView;
         private TextView heightTextView;
         private TextView weightTextView;
         private TextView caloriesBurnedTextView;
 
-        public MainActivity3ViewHolder(@NonNull View itemView) {
+        public SessionViewHolder(@NonNull View itemView) {
             super(itemView);
             stepCountTextView = itemView.findViewById(R.id.textView_step_count);
             heightTextView = itemView.findViewById(R.id.textView_height);
@@ -52,7 +52,7 @@ public class MainActivity3Adapter  extends RecyclerView.Adapter<MainActivity3Ada
             caloriesBurnedTextView = itemView.findViewById(R.id.textView_calories_burned);
         }
 
-        public void bind(MainActivity3 session) {
+        public void bind(Session session) {
             stepCountTextView.setText(String.valueOf(session.getStepCount()));
             heightTextView.setText(String.valueOf(session.getHeight()));
             weightTextView.setText(String.valueOf(session.getWeight()));

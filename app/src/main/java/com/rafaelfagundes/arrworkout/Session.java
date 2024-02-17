@@ -1,8 +1,6 @@
 package com.rafaelfagundes.arrworkout;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity3 extends AppCompatActivity {
+public class Session {
 
     private int stepCount;
     private int height;
@@ -10,7 +8,7 @@ public class MainActivity3 extends AppCompatActivity {
     private float caloriesBurned;
 
 
-    public MainActivity3(int stepCount, int height, int weight, float caloriesBurned) {
+    public Session(int stepCount, int height, int weight, float caloriesBurned) {
         this.stepCount = stepCount;
         this.height = height;
         this.weight = weight;

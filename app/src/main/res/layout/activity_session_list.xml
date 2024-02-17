@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffff"
-    tools:context=".MainActivity2">
+    tools:context=".SessionsList">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_workout_sessions"

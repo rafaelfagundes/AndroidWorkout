@@ -89,8 +89,24 @@ public class MainActivity extends AppCompatActivity {
             speed = 1.79;
         }
 
+        // Calculate walking time
+        double time = distance / speed;
+
+        // Calculate calories burned
+        double calories = time * 3.5 * weight / (200 * 60);
+
+        // Save session details
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        int sessionCount = sharedPreferences.getInt("sessionCount", 0);
+        editor.putInt("stepCount_" + sessionCount, stepCount);
+        editor.putInt("height_" + sessionCount, height);
+        editor.putInt("weight_" + sessionCount, weight);
+        editor.putFloat("caloriesBurned_" + sessionCount, (float) calories);
+        editor.putInt("sessionCount", sessionCount + 1);
+        editor.apply();
+
         // Start new activity or perform necessary actions
-        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        Intent intent = new Intent(MainActivity.this, SessionsList.class);
         startActivity(intent);
     }
 

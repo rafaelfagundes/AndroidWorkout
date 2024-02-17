@@ -13,27 +13,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity {
+public class SessionsList extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
-    private List<MainActivity3> workoutSessionList;
-    private MainActivity3Adapter adapter;
+    private List<Session> workoutSessionList;
+    private SessionAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-
+        setContentView(R.layout.activity_session_list);
 
         sharedPreferences = getSharedPreferences("WorkoutSessions", Context.MODE_PRIVATE);
         workoutSessionList = retrieveWorkoutSessions();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView_workout_sessions);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MainActivity3Adapter(workoutSessionList);
+        adapter = new SessionAdapter(workoutSessionList);
         recyclerView.setAdapter(adapter);
     }
 
-    private List<MainActivity3> retrieveWorkoutSessions() {
-        List<MainActivity3> sessions = new ArrayList<>();
+    private List<Session> retrieveWorkoutSessions() {
+        List<Session> sessions = new ArrayList<>();
 
         int sessionCount = sharedPreferences.getInt("sessionCount", 0);
         for (int i = 0; i < sessionCount; i++) {
@@ -41,7 +40,7 @@ public class MainActivity2 extends AppCompatActivity {
             int height = sharedPreferences.getInt("height_" + i, 0);
             int weight = sharedPreferences.getInt("weight_" + i, 0);
             float caloriesBurned = sharedPreferences.getFloat("caloriesBurned_" + i, 0);
-            sessions.add(new MainActivity3(stepCount, height, weight, caloriesBurned));
+            sessions.add(new Session(stepCount, height, weight, caloriesBurned));
         }
         return sessions;
     }
