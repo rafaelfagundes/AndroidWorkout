@@ -1,4 +1,3 @@
-
 package com.rafaelfagundes.arrworkout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,35 +6,29 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.TextView;
+
+import com.rafaelfagundes.arrworkout.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
-    private EditText heightEditText, weightEditText;
-    private SeekBar stepCountSeekBar;
-    private TextView stepCountTextView;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         sharedPreferences = getSharedPreferences("WorkoutSessions", Context.MODE_PRIVATE);
 
-        heightEditText = findViewById(R.id.editText_height);
-        weightEditText = findViewById(R.id.editText_weight);
-
-        heightEditText.setOnEditorActionListener((v, actionId, event) -> {
+        binding.editTextHeight.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                int height = Integer.parseInt(heightEditText.getText().toString());
+                int height = Integer.parseInt(binding.editTextHeight.getText().toString());
                 editor.putInt("height", height);
                 editor.apply();
                 hideKeyboard();
@@ -44,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
-        weightEditText.setOnEditorActionListener((v, actionId, event) -> {
+        binding.editTextWeight.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                int weight = Integer.parseInt(weightEditText.getText().toString());
+                int weight = Integer.parseInt(binding.editTextWeight.getText().toString());
                 editor.putInt("weight", weight);
                 editor.apply();
                 hideKeyboard();
@@ -56,13 +49,11 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
-        stepCountSeekBar = findViewById(R.id.seekBar);
-        stepCountTextView = findViewById(R.id.textView2);
 
-        stepCountSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                stepCountTextView.setText(String.valueOf(progress));
+                binding.textView2.setText(String.valueOf(progress));
             }
 
             @Override
@@ -74,14 +65,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button addSessionButton = findViewById(R.id.button);
-        addSessionButton.setOnClickListener(view -> addWorkoutSession());
+        binding.button.setOnClickListener(view -> addWorkoutSession());
     }
 
     private void addWorkoutSession() {
-        int stepCount = stepCountSeekBar.getProgress();
-        int height = Integer.parseInt(heightEditText.getText().toString());
-        int weight = Integer.parseInt(weightEditText.getText().toString());
+        int stepCount = binding.seekBar.getProgress();
+        int height = Integer.parseInt(binding.editTextHeight.getText().toString());
+        int weight = Integer.parseInt(binding.editTextWeight.getText().toString());
 
         // Calculate stride
         double stride = height * 0.414;
@@ -109,6 +99,25 @@ public class MainActivity extends AppCompatActivity {
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    private class OnSeekBarChangeListener implements SeekBar.OnSeekBarChangeListener {
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            binding.textView2.setText(String.valueOf(progress));
+
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
         }
     }
 }
