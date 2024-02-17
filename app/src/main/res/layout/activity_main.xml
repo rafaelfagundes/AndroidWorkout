@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#ffffff"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -17,10 +17,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:text="@string/stepcountstring"
+            android:layout_marginTop="40dp"
+            android:text="@string/stepCountString"
             android:textColor="@color/orange"
-            android:textSize="8dp"
+            android:textSize="11sp"
             tools:layout_editor_absoluteX="82dp"
             tools:layout_editor_absoluteY="9dp" />
 
@@ -39,45 +39,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="16sp"
-            android:layout_marginTop="5dp"
-            android:text="@string/defaultstep"
+
+            android:text="@string/defaultStep"
             android:textColor="@color/orange"
+            android:textSize="11sp"
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="52dp" />
 
         <EditText
             android:id="@+id/editText_weight"
             android:layout_width="100dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/orange"
+            android:hint="@string/weightHint"
+            android:inputType="number"
             android:textColor="#000000"
             android:textColorHint="@color/orange"
-            android:backgroundTint="@color/orange"
-            android:hint="@string/weighthint"
-            android:textSize="8dp">
-        </EditText>
+            android:textSize="11sp"
+            android:autofillHints="weight" />
 
         <EditText
             android:id="@+id/editText_height"
             android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/orange"
+            android:hint="@string/heightHint"
+            android:inputType="number"
             android:textColor="#000000"
             android:textColorHint="@color/orange"
-            android:backgroundTint="@color/orange"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:hint="@string/heighthint"
-            android:textSize="8dp">
-        </EditText>
+            android:textSize="11sp"
+            android:autofillHints="height"
+            />
+
         <Button
             android:id="@+id/button"
-            android:layout_width="68dp"
-            android:layout_height="30dp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+
             android:backgroundTint="@color/orange"
             android:text="@string/session"
-            android:textSize="7dp" />
+            android:textSize="11sp" />
 
     </LinearLayout>
 

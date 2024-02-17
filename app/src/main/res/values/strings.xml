@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Workout</string>
-    <string name="stepcountstring">Choose Step Count (Steps per Minute)</string>
-    <string name="weighthint">Enter Weight in Kg.</string>
-    <string name="heighthint">Enter Height in cm.</string>
+    <string name="stepCountString">Choose Step Count (Steps per Minute)</string>
+    <string name="weightHint">Enter Weight in Kg.</string>
+    <string name="heightHint">Enter Height in cm.</string>
     <string name="session">Add Session</string>
-    <string name="defaultstep">0</string>
+    <string name="defaultStep">0</string>
     <string name="steps">Steps</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
