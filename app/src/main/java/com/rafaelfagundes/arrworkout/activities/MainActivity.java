@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         String weightStr = binding.editTextWeight.getText().toString();
 
         // Check if height and weight are entered
-        if (heightStr.isEmpty() || weightStr.isEmpty()) {
+        if (heightStr.isEmpty() || weightStr.isBlank()) {
             Toast.makeText(this, "Please enter both weight and height", Toast.LENGTH_SHORT).show();
             return;
         }

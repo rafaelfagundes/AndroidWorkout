@@ -22,7 +22,7 @@ public class SessionsListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Initialize view binding
-        com.rafaelfagundes.arrworkout.databinding.ActivitySessionListBinding binding = ActivitySessionListBinding.inflate(getLayoutInflater());
+        ActivitySessionListBinding binding = ActivitySessionListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Initialize shared preferences
